@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+.card {
+  max-width: 600px;
+  margin: 24px auto;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0e0ff, #764ba2);
+  background-attachment: fixed;
+}
