@@ -12,6 +12,7 @@ export class TaskService {
 
   add(task: Task) {
     this.tasks.update(list => [...list, { ...task, id: this.nextId++ }]);
+    console.log(this.tasks());
   }
 
   update(id: number, changes: Partial<Task>) {

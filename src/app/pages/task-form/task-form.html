@@ -1,0 +1,22 @@
+<mat-card class="card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Add Task</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Enter Title" formControlName="title" />
+        @if(form.get('title')?.hasError('required')){
+        <mat-error>Title is required</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Description</mat-label>
+        <input matInput placeholder="Enter description" formControlName="description" />
+      </mat-form-field>
+       <button matButton="outlined"  color="primary"  type="submit" [disabled]="form.invalid">Add</button>
+        <button mat-button  color="primary"  type="button" (click)="cancel()">Cancel</button>
+    </form>
+  </mat-card-content>
+</mat-card>
