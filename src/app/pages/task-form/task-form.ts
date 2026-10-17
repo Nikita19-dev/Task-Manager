@@ -33,8 +33,7 @@ export class TaskForm implements OnInit {
     const task = this.route.snapshot.data['task'];
     if (task) {
     this.form.patchValue(task);
-  }
-   
+  }  
 }
 
   form = this.fb.nonNullable.group({
