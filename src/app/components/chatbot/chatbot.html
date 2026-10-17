@@ -1,0 +1,21 @@
+<mat-card class="chat">
+  <mat-card-header>
+    <mat-card-title>Task Assistant</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="messages">
+      @for (m of messages(); track $index) {
+        <div class="msg" [class.user]="m.from === 'user'">{{ m.text }}</div>
+      }
+    </div>
+    <div class="input-row">
+      <mat-form-field appearance="outline" class="input">
+        <input matInput placeholder="Type a message" [(ngModel)]="userText" (keyup.enter)="send()" />
+      </mat-form-field>
+      <button mat-icon-button color="primary" (click)="send()">
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
