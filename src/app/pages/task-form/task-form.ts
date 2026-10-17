@@ -2,7 +2,6 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TaskService } from '../../services/task-service';
 import { Router } from '@angular/router';
-import { Task } from '../../models/task';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -44,12 +43,6 @@ export class TaskForm implements OnInit {
   save() {
     console.log('id is', this.id);
     if (this.form.invalid) return;
-    //getRawValue gets all values of form
-    const task: Task = {
-      title: this.form.value.title ?? '',
-      description: this.form.value.description ?? '',
-      completed: false,
-    };
     const changes = {
       title: this.form.value.title ?? '',
       description: this.form.value.description ?? '',
