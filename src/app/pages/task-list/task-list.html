@@ -10,7 +10,7 @@
         Add Task
       </a>
     </div>
-    @if(taskService.tasks().length === 0) {
+    @if (taskService.tasks().length === 0) {
       <p>No tasks yet.</p>
     } @else {
       <mat-list>
@@ -19,9 +19,14 @@
             <mat-icon matListItemIcon color="primary">task_alt</mat-icon>
             <span matListItemTitle>{{ task.title }}</span>
             <span matListItemLine>{{ task.description }}</span>
-            <button mat-icon-button color="warn" matListItemMeta (click)="taskService.delete(task.id!)">
-              <mat-icon>delete</mat-icon>
-            </button>
+            <div matListItemMeta>
+              <button mat-icon-button color="warn" (click)="taskService.delete(task.id!)">
+                <mat-icon>delete</mat-icon>
+              </button>
+              <a mat-icon-button color="primary" [routerLink]="['/tasks', task.id, 'edit']">
+                <mat-icon>edit</mat-icon>
+              </a>
+            </div>
           </mat-list-item>
         }
       </mat-list>
